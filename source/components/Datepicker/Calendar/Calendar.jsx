@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
 import Days from '../Days/Days';
 
+import './Calendar.less';
+
 class Calendar extends React.Component {
     constructor(props) {
         super(props);
@@ -23,7 +25,7 @@ class Calendar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='datepicker-calendar'>
                 {this.renderDays()}
             </div>
         );

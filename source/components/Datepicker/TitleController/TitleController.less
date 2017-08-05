@@ -1,0 +1,35 @@
+@import '../datepicker-general';
+
+.datepicker-title-controller {
+    .datepicker-table();
+}
+
+.datepicker-title-controller-change-month {
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    position: relative;
+
+    &:hover {
+        background-color: fade(@hover-color, 50%);
+    }
+    &:after {
+        position: absolute;
+        top: 20%;
+        left: 43%;
+    }
+}
+    .datepicker-title-controller-change-month_backward {
+        &:after {
+            content: '‹';
+        }
+    }
+    .datepicker-title-controller-change-month_forward {
+        &:after {
+            content: '›';
+        }
+    }
+
+.datepicker-title-controller-current-month-year {
+    font-weight: normal;
+}

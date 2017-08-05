@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Day from './Day';
+import TitleController from '../TitleController/TitleController';
 
 import './Days.less';
-
-const MONTH_CHANGE_DIRECTION = {
-    backward: 'backward',
-    forward: 'forward',
-};
 
 class Days extends React.Component {
     constructor(props) {
@@ -47,40 +43,10 @@ class Days extends React.Component {
         onDateChange && onDateChange(date);
     }
 
-    changeMonthForward() {
-        this.changeMonth(MONTH_CHANGE_DIRECTION.forward);
-    }
-
-    changeMonthBackward() {
-        this.changeMonth(MONTH_CHANGE_DIRECTION.backward);
-    }
-
-    changeMonth(direction) {
-        const selectedDate = direction === MONTH_CHANGE_DIRECTION.backward ?
-            this.state.selectedDate.clone().subtract(1, 'month') :
-            this.state.selectedDate.clone().add(1, 'month');
-
+    changeMonth(newSelectedDate) {
         this.setState({
-            selectedDate,
+            selectedDate: newSelectedDate,
         });
-    }
-
-    renderTitle() {
-        return (
-            <thead>
-                <tr>
-                    <th
-                        className='datepicker-change-month datepicker-change-month_backward'
-                        onClick={this.changeMonthBackward.bind(this)} />
-                    <th colSpan='5'>
-                        {this.state.selectedDate.format('MMMM, YYYY')}
-                    </th>
-                    <th
-                        className='datepicker-change-month datepicker-change-month_forward'
-                        onClick={this.changeMonthForward.bind(this)} />
-                </tr>
-            </thead>
-        );
     }
 
     renderDaysOfWeek() {
@@ -148,11 +114,17 @@ class Days extends React.Component {
 
     render() {
         return (
-            <table className='datepicker-days-table'>
-                {this.renderTitle()}
-                {this.renderDaysOfWeek()}
-                {this.renderDays()}
-            </table>
+            <div>
+                <TitleController
+                    width={this.state.tableWidth}
+                    date={this.state.selectedDate}
+                    onChangeMonth={this.changeMonth.bind(this)} />
+                <table
+                    className='datepicker-days'>
+                    {this.renderDaysOfWeek()}
+                    {this.renderDays()}
+                </table>
+            </div>
         );
     }
 }
