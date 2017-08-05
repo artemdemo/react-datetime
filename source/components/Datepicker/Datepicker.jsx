@@ -8,9 +8,27 @@ import './Datepicker.less';
 class Datepicker extends React.Component {
     constructor(props) {
         super(props);
+        const { value, utc } = this.props;
+        const date = value;
+        if (utc) {
+            date.utc();
+        }
         this.state = {
             showCalendar: false,
+            date,
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value !== this.props.value) {
+            const date = nextProps.value;
+            if (nextProps.utc) {
+                date.utc();
+            }
+            this.setState({
+                date,
+            });
+        }
     }
 
     inputFocusHandler() {
@@ -25,17 +43,19 @@ class Datepicker extends React.Component {
         });
     }
 
+    handleDateChange(newDate) {
+        this.setState({
+            date: newDate,
+        });
+    }
+
     renderCalendar() {
         if (this.state.showCalendar) {
-            const { utc, value } = this.props;
-            const date = value || moment();
-            if (utc) {
-                date.utc();
-            }
             return (
                 <div className='datepicker-calendar-container'>
                     <Calendar
-                        date={date}
+                        date={this.state.date}
+                        onChange={this.handleDateChange.bind(this)}
                         onClickOutside={this.hideCalendar.bind(this)} />
                 </div>
             );
@@ -47,6 +67,7 @@ class Datepicker extends React.Component {
         return (
             <div className='datepicker'>
                 <input
+                    value={this.state.date.format('YYYY-MM-DD HH:mm:ss')}
                     onFocus={this.inputFocusHandler.bind(this)}
                     className='datepicker-input' />
                 {this.renderCalendar()}
@@ -61,7 +82,7 @@ Datepicker.propTypes = {
 };
 
 Datepicker.defaultProps = {
-    value: null,
+    value: moment(),
     utc: false,
 };
 

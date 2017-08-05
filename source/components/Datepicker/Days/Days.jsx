@@ -40,7 +40,7 @@ class Days extends React.Component {
 
     dayClickHandler(date) {
         const { onDateChange } = this.props;
-        onDateChange && onDateChange(date);
+        onDateChange(date);
     }
 
     changeMonth(newSelectedDate) {
@@ -65,7 +65,7 @@ class Days extends React.Component {
 
     renderDays() {
         const selectedDate = this.state.selectedDate;
-        const prevMonth = selectedDate.clone().subtract(1, 'months');
+        const prevMonth = selectedDate.clone().subtract(1, 'month');
         const currentYear = selectedDate.year();
         const currentMonth = selectedDate.month();
         const weeksRows = [];
@@ -74,6 +74,14 @@ class Days extends React.Component {
         // Go to the last week of the previous month
         prevMonth.date(prevMonth.daysInMonth()).startOf('week');
         const lastDay = prevMonth.clone().add(42, 'day');
+
+        // resetting date will clear time data
+        prevMonth.set({
+            hour: selectedDate.get('hour'),
+            minute: selectedDate.get('minute'),
+            second: selectedDate.get('second'),
+            millisecond: selectedDate.get('millisecond'),
+        });
 
         while (prevMonth.isBefore(lastDay)) {
             const pastMonth = (prevMonth.year() === currentYear && prevMonth.month() < currentMonth) ||
@@ -131,11 +139,7 @@ class Days extends React.Component {
 
 Days.propTypes = {
     date: PropTypes.instanceOf(moment).isRequired,
-    onDateChange: PropTypes.func,
-};
-
-Days.defaultProps = {
-    onDateChange: null,
+    onDateChange: PropTypes.func.isRequired,
 };
 
 export default Days;

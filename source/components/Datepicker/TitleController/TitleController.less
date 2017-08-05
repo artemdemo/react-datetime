@@ -13,19 +13,19 @@
     &:hover {
         background-color: fade(@hover-color, 50%);
     }
-    &:after {
+    &::after {
         position: absolute;
         top: 20%;
         left: 43%;
     }
 }
     .datepicker-title-controller-change-month_backward {
-        &:after {
+        &::after {
             content: '‹';
         }
     }
     .datepicker-title-controller-change-month_forward {
-        &:after {
+        &::after {
             content: '›';
         }
     }
