@@ -1,0 +1,169 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import Day from './Day';
+
+import './Days.less';
+
+const MONTH_CHANGE_DIRECTION = {
+    backward: 'backward',
+    forward: 'forward',
+};
+
+class Days extends React.Component {
+    constructor(props) {
+        super(props);
+        const { date } = this.props;
+
+        this.state = {
+            selectedDate: date.clone(),
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.date !== this.props.date) {
+            this.setState({
+                selectedDate: nextProps.date.clone(),
+            });
+        }
+    }
+
+    getDaysOfWeek() {
+        const localeDate = this.state.selectedDate.localeData();
+        const weekdaysMin = localeDate.weekdaysMin();
+        const first = localeDate.firstDayOfWeek();
+        const dow = [];
+        let i = 0;
+
+        weekdaysMin.forEach((day) => {
+            dow[((7 + (i++)) - first) % 7] = day;
+        });
+
+        return dow;
+    }
+
+    dayClickHandler(date) {
+        const { onDateChange } = this.props;
+        onDateChange && onDateChange(date);
+    }
+
+    changeMonthForward() {
+        this.changeMonth(MONTH_CHANGE_DIRECTION.forward);
+    }
+
+    changeMonthBackward() {
+        this.changeMonth(MONTH_CHANGE_DIRECTION.backward);
+    }
+
+    changeMonth(direction) {
+        const selectedDate = direction === MONTH_CHANGE_DIRECTION.backward ?
+            this.state.selectedDate.clone().subtract(1, 'month') :
+            this.state.selectedDate.clone().add(1, 'month');
+
+        this.setState({
+            selectedDate,
+        });
+    }
+
+    renderTitle() {
+        return (
+            <thead>
+                <tr>
+                    <th
+                        className='datepicker-change-month datepicker-change-month_backward'
+                        onClick={this.changeMonthBackward.bind(this)} />
+                    <th colSpan='5'>
+                        {this.state.selectedDate.format('MMMM, YYYY')}
+                    </th>
+                    <th
+                        className='datepicker-change-month datepicker-change-month_forward'
+                        onClick={this.changeMonthForward.bind(this)} />
+                </tr>
+            </thead>
+        );
+    }
+
+    renderDaysOfWeek() {
+        return (
+            <thead>
+                <tr>
+                    {this.getDaysOfWeek().map((day, index) => (
+                        <th key={`datepicker-day-of-week-${index}`}>
+                            {day}
+                        </th>
+                    ))}
+                </tr>
+            </thead>
+        );
+    }
+
+    renderDays() {
+        const selectedDate = this.state.selectedDate;
+        const prevMonth = selectedDate.clone().subtract(1, 'months');
+        const currentYear = selectedDate.year();
+        const currentMonth = selectedDate.month();
+        const weeksRows = [];
+        let daysColumns = [];
+
+        // Go to the last week of the previous month
+        prevMonth.date(prevMonth.daysInMonth()).startOf('week');
+        const lastDay = prevMonth.clone().add(42, 'day');
+
+        while (prevMonth.isBefore(lastDay)) {
+            const pastMonth = (prevMonth.year() === currentYear && prevMonth.month() < currentMonth) ||
+                               prevMonth.year() < currentYear;
+
+            const futureMonth = (prevMonth.year() === currentYear && prevMonth.month() > currentMonth) ||
+                                 prevMonth.year() > currentYear;
+
+            daysColumns.push(
+                <Day
+                    date={prevMonth.clone()}
+                    onClick={this.dayClickHandler.bind(this)}
+                    current={prevMonth.isSame(moment(), 'day')}
+                    faded={pastMonth || futureMonth}
+                    key={`days-columns-${prevMonth.format('M_D')}`}>
+                    {prevMonth.format('D')}
+                </Day>,
+            );
+
+            if (daysColumns.length === 7) {
+                weeksRows.push(
+                    <tr key={`weeks-rows-${prevMonth.format('M_D')}`}>
+                        {daysColumns}
+                    </tr>,
+                );
+                daysColumns = [];
+            }
+
+            prevMonth.add(1, 'day');
+        }
+
+        return (
+            <tbody>
+                {weeksRows}
+            </tbody>
+        );
+    }
+
+    render() {
+        return (
+            <table className='datepicker-days-table'>
+                {this.renderTitle()}
+                {this.renderDaysOfWeek()}
+                {this.renderDays()}
+            </table>
+        );
+    }
+}
+
+Days.propTypes = {
+    date: PropTypes.instanceOf(moment).isRequired,
+    onDateChange: PropTypes.func,
+};
+
+Days.defaultProps = {
+    onDateChange: null,
+};
+
+export default Days;

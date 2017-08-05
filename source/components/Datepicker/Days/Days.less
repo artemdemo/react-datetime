@@ -1,0 +1,33 @@
+@import '../datepicker-general';
+
+.datepicker-days-table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.datepicker-change-month {
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    position: relative;
+
+    &:hover {
+        background-color: fade(@hover-color, 50%);
+    }
+    &:after {
+        position: absolute;
+        top: 20%;
+        left: 43%;
+    }
+}
+    .datepicker-change-month_backward {
+        &:after {
+            content: '‹';
+        }
+    }
+    .datepicker-change-month_forward {
+        &:after {
+            content: '›';
+        }
+    }
