@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TimeController from './TimeController';
 
 import './Time.less';
+import TimeInput from './TimeInput';
 
 const TIME_TYPES = {
     hour: 'hour',
@@ -66,6 +67,17 @@ class Time extends React.Component {
         const { timeFormat, date } = this.props;
         const match = part.regex.exec(timeFormat);
         if (match) {
+            if (part.type === TIME_TYPES.millisecond) {
+                return (
+                    <td>
+                        <div className='datepicker-time-input-wrap'>
+                            <TimeInput
+                                value={date.format('SSS')}
+                                className='datepicker-time-input' />
+                        </div>
+                    </td>
+                );
+            }
             return (
                 <TimeController
                     key={`datepicker-time-controller-${index}`}

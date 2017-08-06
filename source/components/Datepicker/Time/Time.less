@@ -7,33 +7,11 @@
     text-align: center;
 }
 
-.datepicker-time-controller {
-    cursor: pointer;
-    padding: 13px;
-    border-radius: 4px;
-    position: relative;
-
-    &:hover {
-        background-color: fade(@hover-color, 50%);
-    }
-
-    &:after {
-        position: absolute;
-        font-weight: bold;
-        top: 20%;
-    }
+.datepicker-time-input-wrap {
+    width: 30px;
 }
-    .datepicker-time-controller_up {
-        &::after {
-            content: '‹';
-            left: 45%;
-            transform: rotate(90deg);
-        }
-    }
-    .datepicker-time-controller_down {
-        &::after {
-            content: '‹';
-            left: 40%;
-            transform: rotate(-90deg);
-        }
-    }
+
+.datepicker-time-input {
+    width: 100%;
+    box-sizing: border-box;
+}
