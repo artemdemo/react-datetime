@@ -36,12 +36,15 @@ class Calendar extends React.Component {
     }
 
     render() {
-        const { date } = this.props;
+        const { date, timeFormat } = this.props;
         return (
             <div className='datepicker-calendar'>
                 {this.renderDays()}
                 <Separator />
-                <Time date={date} onChange={this.handleTimeChange.bind(this)} />
+                <Time
+                    date={date}
+                    timeFormat={timeFormat}
+                    onChange={this.handleTimeChange.bind(this)} />
             </div>
         );
     }
@@ -51,6 +54,7 @@ Calendar.propTypes = {
     onClickOutside: PropTypes.func,
     onChange: PropTypes.func,
     date: PropTypes.shape({}),
+    timeFormat: PropTypes.string.isRequired,
 };
 
 Calendar.defaultProps = {

@@ -1,69 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TimeController from './TimeController';
 
 import './Time.less';
 
-const TIME_PART = {
+const TIME_TYPES = {
     hour: 'hour',
     minute: 'minute',
     second: 'second',
+    millisecond: 'millisecond',
 };
 
+const TIME_PARTS = [
+    {
+        type: TIME_TYPES.hour,
+        regex: /h{1,2}|H{1,2}|k{1,2}/,
+    },
+    {
+        type: TIME_TYPES.minute,
+        regex: /m{1,2}/,
+    },
+    {
+        type: TIME_TYPES.second,
+        regex: /s{1,2}/,
+    },
+    {
+        type: TIME_TYPES.millisecond,
+        regex: /S{1,3}/,
+    },
+];
+
 class Time extends React.Component {
-    changeUp(type) {
+    changeUp(part) {
         const { date, onChange } = this.props;
-        onChange(date.clone().add(1, type));
+        onChange(date.clone().add(1, part.type));
     }
 
-    changeDown(type) {
+    changeDown(part) {
         const { date, onChange } = this.props;
-        onChange(date.clone().subtract(1, type));
+        onChange(date.clone().subtract(1, part.type));
     }
+
+    renderController(part, index) {
+        const { timeFormat, date } = this.props;
+        const match = part.regex.exec(timeFormat);
+        if (match) {
+            return (
+                <TimeController
+                    key={`datepicker-time-controller-${index}`}
+                    format={match[0]}
+                    timePart={part}
+                    onUp={this.changeUp.bind(this)}
+                    onDown={this.changeDown.bind(this)}
+                    date={date} />
+            );
+        }
+        return null;
+    }
+
 
     render() {
-        const { date } = this.props;
         return (
             <table className='datepicker-time'>
                 <tbody>
                     <tr>
-                        <td
-                            className='datepicker-time-controller
-                                       datepicker-time-controller_up'
-                            onClick={() => this.changeUp(TIME_PART.hour)} />
-                        <td />
-                        <td
-                            className='datepicker-time-controller
-                                       datepicker-time-controller_up'
-                            onClick={() => this.changeUp(TIME_PART.minute)} />
-                        <td />
-                        <td
-                            className='datepicker-time-controller
-                                       datepicker-time-controller_up'
-                            onClick={() => this.changeUp(TIME_PART.second)} />
-                        <td />
-                    </tr>
-                    <tr>
-                        <td>{date.format('HH')}</td>
-                        <td>:</td>
-                        <td>{date.format('mm')}</td>
-                        <td>:</td>
-                        <td>{date.format('ss')}</td>
-                    </tr>
-                    <tr>
-                        <td
-                            className='datepicker-time-controller
-                                       datepicker-time-controller_down'
-                            onClick={() => this.changeDown(TIME_PART.hour)} />
-                        <td />
-                        <td
-                            className='datepicker-time-controller
-                                       datepicker-time-controller_down'
-                            onClick={() => this.changeDown(TIME_PART.minute)} />
-                        <td />
-                        <td
-                            className='datepicker-time-controller
-                                       datepicker-time-controller_down'
-                            onClick={() => this.changeDown(TIME_PART.second)} />
+                        {TIME_PARTS.map((part, index) => {
+                            const result = [];
+                            const controller = this.renderController(part, index);
+                            if (index !== 0 && controller) {
+                                result.push(
+                                    <td key={`datepicker-time-controller-${index}-1`}>:</td>,
+                                );
+                            }
+                            result.push(
+                                controller,
+                            );
+                            return result;
+                        })}
                     </tr>
                 </tbody>
             </table>
@@ -74,6 +87,7 @@ class Time extends React.Component {
 Time.propTypes = {
     date: PropTypes.shape({}).isRequired,
     onChange: PropTypes.func.isRequired,
+    timeFormat: PropTypes.string.isRequired,
 };
 
 export default Time;

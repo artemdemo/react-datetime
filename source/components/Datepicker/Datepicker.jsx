@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import classnames from 'classnames';
 import Calendar from './Calendar/Calendar';
 
 import './Datepicker.less';
@@ -73,11 +74,13 @@ class Datepicker extends React.Component {
 
     renderCalendar() {
         if (this.state.showCalendar) {
+            const { timeFormat } = this.props;
             return (
                 <div className='datepicker-calendar-container'>
                     <Calendar
                         date={this.state.date}
                         onChange={this.handleDateClick.bind(this)}
+                        timeFormat={timeFormat}
                         onClickOutside={this.handleClickOutside.bind(this)} />
                 </div>
             );
@@ -86,8 +89,10 @@ class Datepicker extends React.Component {
     }
 
     render() {
+        const { className } = this.props;
+        const datepickerClass = classnames('datepicker', className);
         return (
-            <div className='datepicker'>
+            <div className={datepickerClass}>
                 <input
                     ref={this.setInputRef.bind(this)}
                     value={this.state.inputValue}
@@ -103,6 +108,7 @@ class Datepicker extends React.Component {
 Datepicker.propTypes = {
     value: PropTypes.instanceOf(moment),
     utc: PropTypes.bool,
+    className: PropTypes.string,
     dateFormat: PropTypes.string,
     timeFormat: PropTypes.string,
 };
@@ -110,6 +116,7 @@ Datepicker.propTypes = {
 Datepicker.defaultProps = {
     value: moment(),
     utc: false,
+    className: '',
     dateFormat: 'YYYY-MM-DD',
     timeFormat: 'HH:mm:ss',
 };
