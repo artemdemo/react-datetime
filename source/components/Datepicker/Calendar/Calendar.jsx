@@ -53,7 +53,7 @@ class Calendar extends React.Component {
 Calendar.propTypes = {
     onClickOutside: PropTypes.func,
     onChange: PropTypes.func,
-    date: PropTypes.shape({}),
+    date: PropTypes.shape({}).isRequired,
     timeFormat: PropTypes.string.isRequired,
 };
 

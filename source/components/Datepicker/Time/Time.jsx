@@ -9,6 +9,7 @@ const TIME_TYPES = {
     minute: 'minute',
     second: 'second',
     millisecond: 'millisecond',
+    meridiem: 'meridiem',
 };
 
 const TIME_PARTS = [
@@ -28,17 +29,37 @@ const TIME_PARTS = [
         type: TIME_TYPES.millisecond,
         regex: /S{1,3}/,
     },
+    {
+        type: TIME_TYPES.meridiem,
+        regex: /[aA]/,
+    },
 ];
 
 class Time extends React.Component {
     changeUp(part) {
         const { date, onChange } = this.props;
-        onChange(date.clone().add(1, part.type));
+        if (part.type === TIME_TYPES.meridiem) {
+            if (parseInt(date.format('H'), 10) > 11) {
+                onChange(date.clone().subtract(12, TIME_TYPES.hour));
+            } else {
+                onChange(date.clone().add(12, TIME_TYPES.hour));
+            }
+        } else {
+            onChange(date.clone().add(1, part.type));
+        }
     }
 
     changeDown(part) {
         const { date, onChange } = this.props;
-        onChange(date.clone().subtract(1, part.type));
+        if (part.type === TIME_TYPES.meridiem) {
+            if (parseInt(date.format('H'), 10) > 11) {
+                onChange(date.clone().subtract(12, TIME_TYPES.hour));
+            } else {
+                onChange(date.clone().add(12, TIME_TYPES.hour));
+            }
+        } else {
+            onChange(date.clone().subtract(1, part.type));
+        }
     }
 
     renderController(part, index) {

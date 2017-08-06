@@ -3,10 +3,10 @@ import Datepicker from '../components/Datepicker/Datepicker';
 
 import './AppView.less';
 
-const AppView = (props) => {
+const AppView = () => {
     return (
         <div className='container container_top-margin'>
-            <Datepicker />
+            <Datepicker timeFormat='hh:mm:ss:SSS a' />
         </div>
     );
 };
