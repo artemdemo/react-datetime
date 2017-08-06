@@ -5,8 +5,6 @@ import Calendar from './Calendar/Calendar';
 
 import './Datepicker.less';
 
-const DEFAULT_FORMAT = 'YYYY-MM-DD HH:mm:ss';
-
 class Datepicker extends React.Component {
     constructor(props) {
         super(props);
@@ -17,9 +15,10 @@ class Datepicker extends React.Component {
         }
         this.state = {
             showCalendar: false,
-            inputValue: moment.isMoment(date) ? date.format(DEFAULT_FORMAT) : '',
+            inputValue: moment.isMoment(date) ? date.format(this.getFormat()) : '',
             date,
         };
+        this.inputRef = null;
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,29 +33,42 @@ class Datepicker extends React.Component {
         }
     }
 
+    setInputRef(ref) {
+        this.inputRef = ref;
+    }
+
+    getFormat() {
+        const { dateFormat, timeFormat } = this.props;
+        return `${dateFormat} ${timeFormat}`;
+    }
+
     inputFocusHandler() {
         this.setState({
             showCalendar: true,
         });
     }
 
-    hideCalendar() {
-        this.setState({
-            showCalendar: false,
-        });
+    handleClickOutside(e) {
+        if (e.target !== this.inputRef) {
+            this.setState({
+                showCalendar: false,
+            });
+        }
     }
 
     handleDateClick(newDate) {
         this.setState({
             date: newDate,
-            inputValue: newDate.format(DEFAULT_FORMAT),
+            inputValue: newDate.format(this.getFormat()),
         });
     }
 
     handleInputChange(e) {
-        this.setState({
-            inputValue: e.target.value,
-        });
+        const date = moment(e.target.value, this.getFormat());
+        this.setState(Object.assign(
+            { inputValue: e.target.value },
+            date.isValid() ? { date } : null,
+        ));
     }
 
     renderCalendar() {
@@ -66,7 +78,7 @@ class Datepicker extends React.Component {
                     <Calendar
                         date={this.state.date}
                         onChange={this.handleDateClick.bind(this)}
-                        onClickOutside={this.hideCalendar.bind(this)} />
+                        onClickOutside={this.handleClickOutside.bind(this)} />
                 </div>
             );
         }
@@ -77,6 +89,7 @@ class Datepicker extends React.Component {
         return (
             <div className='datepicker'>
                 <input
+                    ref={this.setInputRef.bind(this)}
                     value={this.state.inputValue}
                     onChange={this.handleInputChange.bind(this)}
                     onFocus={this.inputFocusHandler.bind(this)}
@@ -90,11 +103,15 @@ class Datepicker extends React.Component {
 Datepicker.propTypes = {
     value: PropTypes.instanceOf(moment),
     utc: PropTypes.bool,
+    dateFormat: PropTypes.string,
+    timeFormat: PropTypes.string,
 };
 
 Datepicker.defaultProps = {
     value: moment(),
     utc: false,
+    dateFormat: 'YYYY-MM-DD',
+    timeFormat: 'HH:mm:ss',
 };
 
 export default Datepicker;
