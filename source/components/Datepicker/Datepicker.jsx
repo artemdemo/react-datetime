@@ -5,6 +5,8 @@ import Calendar from './Calendar/Calendar';
 
 import './Datepicker.less';
 
+const DEFAULT_FORMAT = 'YYYY-MM-DD HH:mm:ss';
+
 class Datepicker extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +17,7 @@ class Datepicker extends React.Component {
         }
         this.state = {
             showCalendar: false,
+            inputValue: moment.isMoment(date) ? date.format(DEFAULT_FORMAT) : '',
             date,
         };
     }
@@ -43,9 +46,16 @@ class Datepicker extends React.Component {
         });
     }
 
-    handleDateChange(newDate) {
+    handleDateClick(newDate) {
         this.setState({
             date: newDate,
+            inputValue: newDate.format(DEFAULT_FORMAT),
+        });
+    }
+
+    handleInputChange(e) {
+        this.setState({
+            inputValue: e.target.value,
         });
     }
 
@@ -55,7 +65,7 @@ class Datepicker extends React.Component {
                 <div className='datepicker-calendar-container'>
                     <Calendar
                         date={this.state.date}
-                        onChange={this.handleDateChange.bind(this)}
+                        onChange={this.handleDateClick.bind(this)}
                         onClickOutside={this.hideCalendar.bind(this)} />
                 </div>
             );
@@ -67,7 +77,8 @@ class Datepicker extends React.Component {
         return (
             <div className='datepicker'>
                 <input
-                    value={this.state.date.format('YYYY-MM-DD HH:mm:ss')}
+                    value={this.state.inputValue}
+                    onChange={this.handleInputChange.bind(this)}
                     onFocus={this.inputFocusHandler.bind(this)}
                     className='datepicker-input' />
                 {this.renderCalendar()}

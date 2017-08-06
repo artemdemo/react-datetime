@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
 import Days from '../Days/Days';
 import Time from '../Time/Time';
+import Separator from '../Separator/Separator';
 
 import './Calendar.less';
 
@@ -39,6 +40,7 @@ class Calendar extends React.Component {
         return (
             <div className='datepicker-calendar'>
                 {this.renderDays()}
+                <Separator />
                 <Time date={date} onChange={this.handleTimeChange.bind(this)} />
             </div>
         );

@@ -11,13 +11,14 @@ class Day extends React.Component {
     }
 
     render() {
-        const { date, current, faded } = this.props;
+        const { date, current, selected, faded } = this.props;
         const dayClass = classnames({
             'datepicker-day': true,
         });
         const contentClass = classnames({
             'datepicker-day__content': true,
             'datepicker-day__content_current': current,
+            'datepicker-day__content_selected': selected,
             'datepicker-day__content_faded': faded,
         });
         return (
@@ -36,12 +37,14 @@ Day.propTypes = {
     date: PropTypes.shape({}).isRequired,
     onClick: PropTypes.func,
     current: PropTypes.bool,
+    selected: PropTypes.bool,
     faded: PropTypes.bool,
 };
 
 Day.defaultProps = {
     onClick: null,
     current: false,
+    selected: false,
     faded: false,
 };
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Day from './Day';
 import TitleController from '../TitleController/TitleController';
+import Separator from '../Separator/Separator';
 
 import './Days.less';
 
@@ -95,6 +96,7 @@ class Days extends React.Component {
                     date={prevMonth.clone()}
                     onClick={this.dayClickHandler.bind(this)}
                     current={prevMonth.isSame(moment(), 'day')}
+                    selected={prevMonth.isSame(selectedDate)}
                     faded={pastMonth || futureMonth}
                     key={`days-columns-${prevMonth.format('M_D')}`}>
                     {prevMonth.format('D')}
@@ -127,6 +129,7 @@ class Days extends React.Component {
                     width={this.state.tableWidth}
                     date={this.state.selectedDate}
                     onChangeMonth={this.changeMonth.bind(this)} />
+                <Separator />
                 <table
                     className='datepicker-days'>
                     {this.renderDaysOfWeek()}
