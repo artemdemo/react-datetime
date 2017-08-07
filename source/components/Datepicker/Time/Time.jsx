@@ -63,6 +63,11 @@ class Time extends React.Component {
         }
     }
 
+    changeMilliseconds(milliseconds) {
+        const { date, onChange } = this.props;
+        onChange(date.clone().set(TIME_TYPES.millisecond, milliseconds));
+    }
+
     renderController(part, index) {
         const { timeFormat, date } = this.props;
         const match = part.regex.exec(timeFormat);
@@ -73,6 +78,7 @@ class Time extends React.Component {
                         <div className='datepicker-time-input-wrap'>
                             <TimeInput
                                 value={date.format('SSS')}
+                                onChange={this.changeMilliseconds.bind(this)}
                                 className='datepicker-time-input' />
                         </div>
                     </td>
