@@ -5,6 +5,11 @@ import TimeController from './TimeController';
 import './Time.less';
 import TimeInput from './TimeInput';
 
+const CHANGE_DIRECTION = {
+    up: 'up',
+    down: 'down',
+};
+
 const TIME_TYPES = {
     hour: 'hour',
     minute: 'minute',
@@ -38,29 +43,28 @@ const TIME_PARTS = [
 
 class Time extends React.Component {
     changeUp(part) {
-        const { date, onChange } = this.props;
-        if (part.type === TIME_TYPES.meridiem) {
-            if (parseInt(date.format('H'), 10) > 11) {
-                onChange(date.clone().subtract(12, TIME_TYPES.hour));
-            } else {
-                onChange(date.clone().add(12, TIME_TYPES.hour));
-            }
-        } else {
-            onChange(date.clone().add(1, part.type));
-        }
+        this.changeTime(part, CHANGE_DIRECTION.up);
     }
 
     changeDown(part) {
+        this.changeTime(part, CHANGE_DIRECTION.down);
+    }
+
+    changeTime(part, direction) {
         const { date, onChange } = this.props;
+        const dateProps = {
+            date: date.date(),
+            month: date.month(),
+            year: date.year(),
+        };
+        const newDate = date.clone();
+        const changeAction = direction === CHANGE_DIRECTION.up ? 'add' : 'subtract';
         if (part.type === TIME_TYPES.meridiem) {
-            if (parseInt(date.format('H'), 10) > 11) {
-                onChange(date.clone().subtract(12, TIME_TYPES.hour));
-            } else {
-                onChange(date.clone().add(12, TIME_TYPES.hour));
-            }
+            newDate[changeAction](12, TIME_TYPES.hour);
         } else {
-            onChange(date.clone().subtract(1, part.type));
+            newDate[changeAction](1, part.type);
         }
+        onChange(newDate.date(dateProps.date).month(dateProps.month).year(dateProps.year));
     }
 
     changeMilliseconds(milliseconds) {

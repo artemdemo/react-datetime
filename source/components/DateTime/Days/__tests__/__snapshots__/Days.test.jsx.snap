@@ -1,987 +1,933 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Days /> all dates after 1 of august (not incl) should be disabled 1`] = `
-<div>
-  <table
-    className="datetime-title-controller"
-  >
-    <thead>
-      <tr>
-        <th
-          className="datetime-title-controller-change-month datetime-title-controller-change-month_backward"
-          onClick={[Function]}
-        />
-        <th
-          className="datetime-title-controller-current-month-year"
-          colSpan="5"
+<table
+  className="datetime-days"
+>
+  <thead>
+    <tr>
+      <th>
+        Su
+      </th>
+      <th>
+        Mo
+      </th>
+      <th>
+        Tu
+      </th>
+      <th>
+        We
+      </th>
+      <th>
+        Th
+      </th>
+      <th>
+        Fr
+      </th>
+      <th>
+        Sa
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          August, 2017
-        </th>
-        <th
-          className="datetime-title-controller-change-month datetime-title-controller-change-month_forward"
-          onClick={[Function]}
-        />
-      </tr>
-    </thead>
-  </table>
-  <hr
-    className="datetime-separator"
-  />
-  <table
-    className="datetime-days"
-  >
-    <thead>
-      <tr>
-        <th>
-          Su
-        </th>
-        <th>
-          Mo
-        </th>
-        <th>
-          Tu
-        </th>
-        <th>
-          We
-        </th>
-        <th>
-          Th
-        </th>
-        <th>
-          Fr
-        </th>
-        <th>
-          Sa
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          30
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            30
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          31
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            31
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          1
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content"
-          >
-            1
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          2
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            2
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          3
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            3
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          4
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            4
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          5
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            5
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          6
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            6
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          7
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            7
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          8
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            8
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          9
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            9
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          10
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_current datetime-day__content_selected datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            10
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          11
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_current datetime-day__content_selected datetime-day__content_disabled"
-          >
-            11
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          12
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            12
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          13
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            13
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          14
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            14
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          15
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            15
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          16
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            16
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          17
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            17
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          18
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            18
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          19
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            19
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          20
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            20
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          21
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            21
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          22
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            22
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          23
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            23
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          24
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            24
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          25
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            25
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          26
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            26
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          27
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            27
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          28
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            28
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          29
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            29
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          30
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            30
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          31
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_disabled"
-          >
-            31
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          1
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            1
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          2
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            2
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          3
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            3
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          4
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            4
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          5
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            5
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          6
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            6
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          7
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            7
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          8
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            8
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
-        >
-          <div
-            className="datetime-day__content datetime-day__content_faded datetime-day__content_disabled"
-          >
-            9
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          9
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`<Days /> simple render 1`] = `
-<div>
-  <table
-    className="datetime-title-controller"
-  >
-    <thead>
-      <tr>
-        <th
-          className="datetime-title-controller-change-month datetime-title-controller-change-month_backward"
-          onClick={[Function]}
-        />
-        <th
-          className="datetime-title-controller-current-month-year"
-          colSpan="5"
+<table
+  className="datetime-days"
+>
+  <thead>
+    <tr>
+      <th>
+        Su
+      </th>
+      <th>
+        Mo
+      </th>
+      <th>
+        Tu
+      </th>
+      <th>
+        We
+      </th>
+      <th>
+        Th
+      </th>
+      <th>
+        Fr
+      </th>
+      <th>
+        Sa
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          August, 2017
-        </th>
-        <th
-          className="datetime-title-controller-change-month datetime-title-controller-change-month_forward"
-          onClick={[Function]}
-        />
-      </tr>
-    </thead>
-  </table>
-  <hr
-    className="datetime-separator"
-  />
-  <table
-    className="datetime-days"
-  >
-    <thead>
-      <tr>
-        <th>
-          Su
-        </th>
-        <th>
-          Mo
-        </th>
-        <th>
-          Tu
-        </th>
-        <th>
-          We
-        </th>
-        <th>
-          Th
-        </th>
-        <th>
-          Fr
-        </th>
-        <th>
-          Sa
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          30
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            30
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          31
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            31
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          1
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            1
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          2
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            2
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          3
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            3
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          4
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            4
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          5
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            5
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          6
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            6
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          7
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            7
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          8
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            8
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          9
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            9
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          10
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_current datetime-day__content_selected"
         >
-          <div
-            className="datetime-day__content"
-          >
-            10
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          11
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content datetime-day__content_current datetime-day__content_selected"
-          >
-            11
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          12
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            12
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          13
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            13
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          14
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            14
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          15
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            15
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          16
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            16
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          17
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            17
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          18
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            18
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          19
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            19
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          20
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            20
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          21
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            21
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          22
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            22
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          23
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            23
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          24
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            24
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          25
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            25
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          26
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            26
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          27
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            27
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          28
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            28
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          29
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            29
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          30
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
         >
-          <div
-            className="datetime-day__content"
-          >
-            30
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          31
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content"
-          >
-            31
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          1
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            1
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          2
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            2
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          3
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            3
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          4
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            4
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          5
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            5
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          6
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            6
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          7
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            7
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
+          8
+        </div>
+      </td>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
         >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            8
-          </div>
-        </td>
-        <td
-          className="datetime-day"
-          onClick={[Function]}
-        >
-          <div
-            className="datetime-day__content datetime-day__content_faded"
-          >
-            9
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          9
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;

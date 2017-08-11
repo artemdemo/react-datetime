@@ -4,6 +4,7 @@ import onClickOutside from 'react-onclickoutside';
 import Days from '../Days/Days';
 import Time from '../Time/Time';
 import Separator from '../Separator/Separator';
+import TitleController from '../TitleController/TitleController';
 
 import './Calendar.less';
 
@@ -28,6 +29,8 @@ export class Calendar extends React.Component {
         onChange && onChange(newDate);
     }
 
+    handleMonthChange() {}
+
     renderDays() {
         const { date, isValidDate } = this.props;
         return (
@@ -38,16 +41,33 @@ export class Calendar extends React.Component {
         );
     }
 
-    render() {
+    renderTime() {
         const { date, timeFormat } = this.props;
+        if (!timeFormat) {
+            return null;
+        }
         return (
-            <div className='datetime-calendar'>
-                {this.renderDays()}
+            <div>
                 <Separator />
                 <Time
                     date={date}
                     timeFormat={timeFormat}
                     onChange={this.handleTimeChange.bind(this)} />
+            </div>
+        );
+    }
+
+    render() {
+        const { date } = this.props;
+        return (
+            <div className='datetime-calendar'>
+                <TitleController
+                    date={date}
+                    format='MMMM, YYYY'
+                    onChange={this.handleMonthChange.bind(this)} />
+                <Separator />
+                {this.renderDays()}
+                {this.renderTime()}
             </div>
         );
     }
@@ -64,6 +84,7 @@ Calendar.propTypes = {
 };
 
 Calendar.defaultProps = {
+    timeFormat: null,
     onClickOutside: null,
     onChange: null,
     isValidDate: null,

@@ -15,7 +15,7 @@ class TitleController extends React.Component {
     }
 
     render() {
-        const { date } = this.props;
+        const { date, format } = this.props;
         return (
             <table className='datetime-title-controller'>
                 <thead>
@@ -27,7 +27,7 @@ class TitleController extends React.Component {
                         <th
                             className='datetime-title-controller-current-month-year'
                             colSpan='5'>
-                            {date.format('MMMM, YYYY')}
+                            {date.format(format)}
                         </th>
                         <th
                             className='datetime-title-controller-change-month
@@ -45,6 +45,7 @@ TitleController.displayName = 'TitleController';
 TitleController.propTypes = {
     date: PropTypes.shape({}).isRequired,
     onChange: PropTypes.func.isRequired,
+    format: PropTypes.string.isRequired,
 };
 
 export default TitleController;

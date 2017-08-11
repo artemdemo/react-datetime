@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Day from './Day';
-import TitleController from '../TitleController/TitleController';
-import Separator from '../Separator/Separator';
 
 import './Days.less';
 
@@ -42,12 +40,6 @@ class Days extends React.Component {
     dayClickHandler(date) {
         const { onDateChange } = this.props;
         onDateChange(date);
-    }
-
-    changeMonth(newSelectedDate) {
-        this.setState({
-            selectedDate: newSelectedDate,
-        });
     }
 
     renderDaysOfWeek() {
@@ -127,17 +119,11 @@ class Days extends React.Component {
 
     render() {
         return (
-            <div>
-                <TitleController
-                    date={this.state.selectedDate}
-                    onChange={this.changeMonth.bind(this)} />
-                <Separator />
-                <table
-                    className='datetime-days'>
-                    {this.renderDaysOfWeek()}
-                    {this.renderDays()}
-                </table>
-            </div>
+            <table
+                className='datetime-days'>
+                {this.renderDaysOfWeek()}
+                {this.renderDays()}
+            </table>
         );
     }
 }

@@ -10,6 +10,7 @@ describe('<TitleController />', () => {
         const tree = renderer.create(
             <TitleController
                 date={date}
+                format='MMMM, YYYY'
                 onChange={() => {}}
             />,
         ).toJSON();
