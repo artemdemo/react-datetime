@@ -75,18 +75,18 @@ class Time extends React.Component {
             if (part.type === TIME_TYPES.millisecond) {
                 return (
                     <td>
-                        <div className='datepicker-time-input-wrap'>
+                        <div className='datetime-time-input-wrap'>
                             <TimeInput
                                 value={date.format('SSS')}
                                 onChange={this.changeMilliseconds.bind(this)}
-                                className='datepicker-time-input' />
+                                className='datetime-time-input' />
                         </div>
                     </td>
                 );
             }
             return (
                 <TimeController
-                    key={`datepicker-time-controller-${index}`}
+                    key={`datetime-time-controller-${index}`}
                     format={match[0]}
                     timePart={part}
                     onUp={this.changeUp.bind(this)}
@@ -100,7 +100,7 @@ class Time extends React.Component {
 
     render() {
         return (
-            <table className='datepicker-time'>
+            <table className='datetime-time'>
                 <tbody>
                     <tr>
                         {TIME_PARTS.map((part, index) => {
@@ -108,7 +108,7 @@ class Time extends React.Component {
                             const controller = this.renderController(part, index);
                             if (index !== 0 && controller) {
                                 result.push(
-                                    <td key={`datepicker-time-controller-${index}-1`}>:</td>,
+                                    <td key={`datetime-time-controller-${index}-1`}>:</td>,
                                 );
                             }
                             result.push(

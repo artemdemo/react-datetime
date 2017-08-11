@@ -13,13 +13,13 @@ class Day extends React.Component {
     render() {
         const { date, current, selected, faded } = this.props;
         const dayClass = classnames({
-            'datepicker-day': true,
+            'datetime-day': true,
         });
         const contentClass = classnames({
-            'datepicker-day__content': true,
-            'datepicker-day__content_current': current,
-            'datepicker-day__content_selected': selected,
-            'datepicker-day__content_faded': faded,
+            'datetime-day__content': true,
+            'datetime-day__content_current': current,
+            'datetime-day__content_selected': selected,
+            'datetime-day__content_faded': faded,
         });
         return (
             <td

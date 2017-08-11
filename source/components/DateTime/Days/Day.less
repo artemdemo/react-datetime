@@ -1,10 +1,10 @@
-@import '../datepicker-general';
+@import '../datetime-general';
 
-.datepicker-day {
+.datetime-day {
     text-align: center;
     cursor: pointer;
 }
-    .datepicker-day__content {
+    .datetime-day__content {
         border: 2px solid transparent;
         border-radius: 4px;
         padding: 3px;
@@ -13,12 +13,12 @@
             background: @hover-color;
         }
     }
-        .datepicker-day__content_current {
+        .datetime-day__content_current {
             border-color: @hover-color;
         }
-        .datepicker-day__content_selected {
+        .datetime-day__content_selected {
             background-color: @hover-color;
         }
-        .datepicker-day__content_faded {
+        .datetime-day__content_faded {
             color: fade(@text-color, 30%);
         }

@@ -38,7 +38,7 @@ class Calendar extends React.Component {
     render() {
         const { date, timeFormat } = this.props;
         return (
-            <div className='datepicker-calendar'>
+            <div className='datetime-calendar'>
                 {this.renderDays()}
                 <Separator />
                 <Time

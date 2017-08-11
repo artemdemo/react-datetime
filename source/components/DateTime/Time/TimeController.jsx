@@ -19,13 +19,13 @@ class TimeController extends React.Component {
         return (
             <td>
                 <div
-                    className='datepicker-time-controller
-                               datepicker-time-controller_up'
+                    className='datetime-time-controller
+                               datetime-time-controller_up'
                     onClick={this.handleUp.bind(this)} />
                 <div>{date.format(format)}</div>
                 <div
-                    className='datepicker-time-controller
-                               datepicker-time-controller_down'
+                    className='datetime-time-controller
+                               datetime-time-controller_down'
                     onClick={this.handleDown.bind(this)} />
             </td>
         );

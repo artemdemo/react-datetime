@@ -17,21 +17,21 @@ class TitleController extends React.Component {
     render() {
         const { date } = this.props;
         return (
-            <table className='datepicker-title-controller'>
+            <table className='datetime-title-controller'>
                 <thead>
                     <tr>
                         <th
-                            className='datepicker-title-controller-change-month
-                                       datepicker-title-controller-change-month_backward'
+                            className='datetime-title-controller-change-month
+                                       datetime-title-controller-change-month_backward'
                             onClick={this.changeMonthBackward.bind(this)} />
                         <th
-                            className='datepicker-title-controller-current-month-year'
+                            className='datetime-title-controller-current-month-year'
                             colSpan='5'>
                             {date.format('MMMM, YYYY')}
                         </th>
                         <th
-                            className='datepicker-title-controller-change-month
-                                       datepicker-title-controller-change-month_forward'
+                            className='datetime-title-controller-change-month
+                                       datetime-title-controller-change-month_forward'
                             onClick={this.changeMonthForward.bind(this)} />
                     </tr>
                 </thead>

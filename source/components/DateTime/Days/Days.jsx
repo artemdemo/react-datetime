@@ -55,7 +55,7 @@ class Days extends React.Component {
             <thead>
                 <tr>
                     {this.getDaysOfWeek().map((day, index) => (
-                        <th key={`datepicker-day-of-week-${index}`}>
+                        <th key={`datetime-day-of-week-${index}`}>
                             {day}
                         </th>
                     ))}
@@ -131,7 +131,7 @@ class Days extends React.Component {
                     onChangeMonth={this.changeMonth.bind(this)} />
                 <Separator />
                 <table
-                    className='datepicker-days'>
+                    className='datetime-days'>
                     {this.renderDaysOfWeek()}
                     {this.renderDays()}
                 </table>

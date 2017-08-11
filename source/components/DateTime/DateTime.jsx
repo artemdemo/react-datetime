@@ -4,9 +4,9 @@ import moment from 'moment';
 import classnames from 'classnames';
 import Calendar from './Calendar/Calendar';
 
-import './Datepicker.less';
+import './DateTime.less';
 
-class Datepicker extends React.Component {
+class DatePicker extends React.Component {
     constructor(props) {
         super(props);
         const { value, utc } = this.props;
@@ -58,25 +58,31 @@ class Datepicker extends React.Component {
     }
 
     handleDateClick(newDate) {
+        const { onChange } = this.props;
         this.setState({
             date: newDate,
             inputValue: newDate.format(this.getFormat()),
         });
+        onChange && onChange(newDate);
     }
 
     handleInputChange(e) {
+        const inputValue = e.target.value;
         const date = moment(e.target.value, this.getFormat());
         this.setState(Object.assign(
-            { inputValue: e.target.value },
+            { inputValue },
             date.isValid() ? { date } : null,
         ));
+
+        const { onChange } = this.props;
+        onChange && onChange(date.isValid() ? date : inputValue);
     }
 
     renderCalendar() {
         if (this.state.showCalendar) {
             const { timeFormat } = this.props;
             return (
-                <div className='datepicker-calendar-container'>
+                <div className='datetime-calendar-container'>
                     <Calendar
                         date={this.state.date}
                         onChange={this.handleDateClick.bind(this)}
@@ -90,35 +96,37 @@ class Datepicker extends React.Component {
 
     render() {
         const { className } = this.props;
-        const datepickerClass = classnames('datepicker', className);
+        const datetimeClass = classnames('datetime', className);
         return (
-            <div className={datepickerClass}>
+            <div className={datetimeClass}>
                 <input
                     ref={this.setInputRef.bind(this)}
                     value={this.state.inputValue}
                     onChange={this.handleInputChange.bind(this)}
                     onFocus={this.inputFocusHandler.bind(this)}
-                    className='datepicker-input' />
+                    className='datetime-input' />
                 {this.renderCalendar()}
             </div>
         );
     }
 }
 
-Datepicker.propTypes = {
+DatePicker.propTypes = {
     value: PropTypes.instanceOf(moment),
+    onChange: PropTypes.func,
     utc: PropTypes.bool,
     className: PropTypes.string,
     dateFormat: PropTypes.string,
     timeFormat: PropTypes.string,
 };
 
-Datepicker.defaultProps = {
+DatePicker.defaultProps = {
     value: moment(),
+    onChange: null,
     utc: false,
     className: '',
     dateFormat: 'YYYY-MM-DD',
     timeFormat: 'HH:mm:ss',
 };
 
-export default Datepicker;
+export default DatePicker;
