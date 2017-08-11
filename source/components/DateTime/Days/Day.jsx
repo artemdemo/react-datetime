@@ -5,26 +5,30 @@ import classnames from 'classnames';
 import './Day.less';
 
 class Day extends React.Component {
-    clickHandler() {
+    clickHandler(validDate) {
         const { date, onClick } = this.props;
-        onClick && onClick(date);
+        if (validDate) {
+            onClick && onClick(date);
+        }
     }
 
     render() {
-        const { date, current, selected, faded } = this.props;
+        const { date, current, selected, faded, isValidDate } = this.props;
         const dayClass = classnames({
             'datetime-day': true,
         });
+        const validDate = isValidDate ? isValidDate(date) : true;
         const contentClass = classnames({
             'datetime-day__content': true,
             'datetime-day__content_current': current,
             'datetime-day__content_selected': selected,
             'datetime-day__content_faded': faded,
+            'datetime-day__content_disabled': !validDate,
         });
         return (
             <td
                 className={dayClass}
-                onClick={this.clickHandler.bind(this)}>
+                onClick={this.clickHandler.bind(this, validDate)}>
                 <div className={contentClass}>
                     {date.format('D')}
                 </div>
@@ -33,9 +37,12 @@ class Day extends React.Component {
     }
 }
 
+Day.displayName = 'Day';
+
 Day.propTypes = {
     date: PropTypes.shape({}).isRequired,
     onClick: PropTypes.func,
+    isValidDate: PropTypes.func,
     current: PropTypes.bool,
     selected: PropTypes.bool,
     faded: PropTypes.bool,
@@ -43,6 +50,7 @@ Day.propTypes = {
 
 Day.defaultProps = {
     onClick: null,
+    isValidDate: null,
     current: false,
     selected: false,
     faded: false,

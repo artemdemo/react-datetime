@@ -84,6 +84,8 @@ class Days extends React.Component {
             millisecond: selectedDate.get('millisecond'),
         });
 
+        const { isValidDate } = this.props;
+
         while (prevMonth.isBefore(lastDay)) {
             const pastMonth = (prevMonth.year() === currentYear && prevMonth.month() < currentMonth) ||
                                prevMonth.year() < currentYear;
@@ -98,6 +100,7 @@ class Days extends React.Component {
                     current={prevMonth.isSame(moment(), 'day')}
                     selected={prevMonth.isSame(selectedDate)}
                     faded={pastMonth || futureMonth}
+                    isValidDate={isValidDate}
                     key={`days-columns-${prevMonth.format('M_D')}`}>
                     {prevMonth.format('D')}
                 </Day>,
@@ -126,7 +129,6 @@ class Days extends React.Component {
         return (
             <div>
                 <TitleController
-                    width={this.state.tableWidth}
                     date={this.state.selectedDate}
                     onChangeMonth={this.changeMonth.bind(this)} />
                 <Separator />
@@ -140,9 +142,16 @@ class Days extends React.Component {
     }
 }
 
+Days.displayName = 'Days';
+
 Days.propTypes = {
     date: PropTypes.instanceOf(moment).isRequired,
     onDateChange: PropTypes.func.isRequired,
+    isValidDate: PropTypes.func.isRequired,
+};
+
+Days.defaultProps = {
+    isValidDate: null,
 };
 
 export default Days;

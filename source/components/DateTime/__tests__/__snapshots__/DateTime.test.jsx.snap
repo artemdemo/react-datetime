@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DateTime /> simple render 1`] = `
+<div
+  className="datetime"
+>
+  <input
+    className="datetime-input"
+    onChange={[Function]}
+    onFocus={[Function]}
+    value="2017-08-11 13:44:54"
+  />
+</div>
+`;

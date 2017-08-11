@@ -20,5 +20,13 @@
             background-color: @hover-color;
         }
         .datetime-day__content_faded {
-            color: fade(@text-color, 30%);
+            color: fade(@text-color, 35%);
+        }
+        .datetime-day__content_disabled {
+            color: fade(@text-color, 15%);
+            cursor: not-allowed;
+
+            &:hover {
+                background: transparent;
+            }
         }

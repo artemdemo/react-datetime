@@ -40,6 +40,8 @@ class TitleController extends React.Component {
     }
 }
 
+TitleController.displayName = 'TitleController';
+
 TitleController.propTypes = {
     date: PropTypes.shape({}).isRequired,
     onChangeMonth: PropTypes.func,

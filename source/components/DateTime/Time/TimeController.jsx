@@ -32,6 +32,8 @@ class TimeController extends React.Component {
     }
 }
 
+TimeController.displayName = 'TimeController';
+
 TimeController.propTypes = {
     date: PropTypes.shape({}).isRequired,
     format: PropTypes.string.isRequired,

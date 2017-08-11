@@ -123,6 +123,8 @@ class Time extends React.Component {
     }
 }
 
+Time.displayName = 'Time';
+
 Time.propTypes = {
     date: PropTypes.shape({}).isRequired,
     onChange: PropTypes.func.isRequired,

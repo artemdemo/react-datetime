@@ -29,9 +29,12 @@ class Calendar extends React.Component {
     }
 
     renderDays() {
-        const { date } = this.props;
+        const { date, isValidDate } = this.props;
         return (
-            <Days date={date} onDateChange={this.handleDateChange.bind(this)} />
+            <Days
+                date={date}
+                isValidDate={isValidDate}
+                onDateChange={this.handleDateChange.bind(this)} />
         );
     }
 
@@ -50,9 +53,12 @@ class Calendar extends React.Component {
     }
 }
 
+Calendar.displayName = 'Calendar';
+
 Calendar.propTypes = {
     onClickOutside: PropTypes.func,
     onChange: PropTypes.func,
+    isValidDate: PropTypes.func,
     date: PropTypes.shape({}).isRequired,
     timeFormat: PropTypes.string.isRequired,
 };
@@ -60,6 +66,7 @@ Calendar.propTypes = {
 Calendar.defaultProps = {
     onClickOutside: null,
     onChange: null,
+    isValidDate: null,
     value: null,
 };
 

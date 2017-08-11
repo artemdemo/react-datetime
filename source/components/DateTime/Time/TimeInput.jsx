@@ -38,6 +38,8 @@ class TimeInput extends React.Component {
     }
 }
 
+TimeInput.displayName = 'TimeInput';
+
 TimeInput.propTypes = {
     className: PropTypes.string,
     value: PropTypes.string,

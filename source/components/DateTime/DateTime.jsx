@@ -9,8 +9,8 @@ import './DateTime.less';
 class DatePicker extends React.Component {
     constructor(props) {
         super(props);
-        const { value, utc } = this.props;
-        const date = value;
+        const { defaultValue, utc } = this.props;
+        const date = moment(defaultValue);
         if (utc) {
             date.utc();
         }
@@ -80,13 +80,14 @@ class DatePicker extends React.Component {
 
     renderCalendar() {
         if (this.state.showCalendar) {
-            const { timeFormat } = this.props;
+            const { timeFormat, isValidDate } = this.props;
             return (
                 <div className='datetime-calendar-container'>
                     <Calendar
                         date={this.state.date}
                         onChange={this.handleDateClick.bind(this)}
                         timeFormat={timeFormat}
+                        isValidDate={isValidDate}
                         onClickOutside={this.handleClickOutside.bind(this)} />
                 </div>
             );
@@ -111,9 +112,25 @@ class DatePicker extends React.Component {
     }
 }
 
+export const propIsMoment = (props, propName, componentName) => {
+    if (!moment.isMoment(props[propName])) {
+        return new Error(
+            `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`,
+        );
+    }
+    return undefined;
+};
+
+DatePicker.displayName = 'DatePicker';
+
 DatePicker.propTypes = {
-    value: PropTypes.instanceOf(moment),
+    defaultValue: PropTypes.oneOfType([
+        propIsMoment,
+        PropTypes.string,
+        PropTypes.number,
+    ]),
     onChange: PropTypes.func,
+    isValidDate: PropTypes.func,
     utc: PropTypes.bool,
     className: PropTypes.string,
     dateFormat: PropTypes.string,
@@ -121,8 +138,9 @@ DatePicker.propTypes = {
 };
 
 DatePicker.defaultProps = {
-    value: moment(),
+    defaultValue: moment(),
     onChange: null,
+    isValidDate: null,
     utc: false,
     className: '',
     dateFormat: 'YYYY-MM-DD',
