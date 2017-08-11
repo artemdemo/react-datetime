@@ -7,7 +7,7 @@ import Separator from '../Separator/Separator';
 
 import './Calendar.less';
 
-class Calendar extends React.Component {
+export class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -56,18 +56,17 @@ class Calendar extends React.Component {
 Calendar.displayName = 'Calendar';
 
 Calendar.propTypes = {
+    date: PropTypes.shape({}).isRequired,
+    timeFormat: PropTypes.string.isRequired,
     onClickOutside: PropTypes.func,
     onChange: PropTypes.func,
     isValidDate: PropTypes.func,
-    date: PropTypes.shape({}).isRequired,
-    timeFormat: PropTypes.string.isRequired,
 };
 
 Calendar.defaultProps = {
     onClickOutside: null,
     onChange: null,
     isValidDate: null,
-    value: null,
 };
 
 export default onClickOutside(Calendar);

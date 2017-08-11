@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Time /> simple render, with time format "HH:mm:ss:SSS" 1`] = `
+<table
+  className="datetime-time"
+>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          16
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          44
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          54
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <div
+          className="datetime-time-input-wrap"
+        >
+          <input
+            className="datetime-time-input"
+            onChange={[Function]}
+            type="text"
+            value="000"
+          />
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Time /> time format "HH:mm" 1`] = `
+<table
+  className="datetime-time"
+>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          16
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          44
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Time /> time format "HH:mm:ss" 1`] = `
+<table
+  className="datetime-time"
+>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          16
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          44
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <div
+          className="datetime-time-controller datetime-time-controller_up"
+          onClick={[Function]}
+        />
+        <div>
+          54
+        </div>
+        <div
+          className="datetime-time-controller datetime-time-controller_down"
+          onClick={[Function]}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

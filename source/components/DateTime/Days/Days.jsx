@@ -130,7 +130,7 @@ class Days extends React.Component {
             <div>
                 <TitleController
                     date={this.state.selectedDate}
-                    onChangeMonth={this.changeMonth.bind(this)} />
+                    onChange={this.changeMonth.bind(this)} />
                 <Separator />
                 <table
                     className='datetime-days'>
@@ -147,7 +147,7 @@ Days.displayName = 'Days';
 Days.propTypes = {
     date: PropTypes.instanceOf(moment).isRequired,
     onDateChange: PropTypes.func.isRequired,
-    isValidDate: PropTypes.func.isRequired,
+    isValidDate: PropTypes.func,
 };
 
 Days.defaultProps = {

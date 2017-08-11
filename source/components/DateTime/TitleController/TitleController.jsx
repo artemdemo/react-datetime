@@ -5,13 +5,13 @@ import './TitleController.less';
 
 class TitleController extends React.Component {
     changeMonthForward() {
-        const { onChangeMonth, date } = this.props;
-        onChangeMonth && onChangeMonth(date.clone().add(1, 'month'));
+        const { onChange, date } = this.props;
+        onChange(date.clone().add(1, 'month'));
     }
 
     changeMonthBackward() {
-        const { onChangeMonth, date } = this.props;
-        onChangeMonth && onChangeMonth(date.clone().subtract(1, 'month'));
+        const { onChange, date } = this.props;
+        onChange(date.clone().subtract(1, 'month'));
     }
 
     render() {
@@ -44,11 +44,7 @@ TitleController.displayName = 'TitleController';
 
 TitleController.propTypes = {
     date: PropTypes.shape({}).isRequired,
-    onChangeMonth: PropTypes.func,
-};
-
-TitleController.defaultProps = {
-    onChangeMonth: null,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default TitleController;

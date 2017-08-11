@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> current 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_current"
+        >
+          11
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Day /> faded 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_faded"
+        >
+          11
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Day /> isValidDate 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_disabled"
+        >
+          11
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Day /> selected 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content datetime-day__content_selected"
+        >
+          11
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Day /> simple render 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td
+        className="datetime-day"
+        onClick={[Function]}
+      >
+        <div
+          className="datetime-day__content"
+        >
+          11
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

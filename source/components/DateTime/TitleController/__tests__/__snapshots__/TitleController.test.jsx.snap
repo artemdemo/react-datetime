@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TitleController /> simple render 1`] = `
+<table
+  className="datetime-title-controller"
+>
+  <thead>
+    <tr>
+      <th
+        className="datetime-title-controller-change-month datetime-title-controller-change-month_backward"
+        onClick={[Function]}
+      />
+      <th
+        className="datetime-title-controller-current-month-year"
+        colSpan="5"
+      >
+        August, 2017
+      </th>
+      <th
+        className="datetime-title-controller-change-month datetime-title-controller-change-month_forward"
+        onClick={[Function]}
+      />
+    </tr>
+  </thead>
+</table>
+`;
