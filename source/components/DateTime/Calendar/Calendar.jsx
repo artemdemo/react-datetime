@@ -10,6 +10,11 @@ import { propIsMoment } from '../propTypes';
 import './Calendar.less';
 import Months from '../Months/Months';
 
+const PAGINATION_DIRECTION = {
+    forward: 'forward',
+    backward: 'backward',
+};
+
 export class Calendar extends React.Component {
     constructor(props) {
         super(props);
@@ -54,6 +59,19 @@ export class Calendar extends React.Component {
             monthDate,
             viewDays: true,
         });
+    }
+
+    handleTitlePagination(direction) {
+        const step = this.state.viewDays ? 'month' : 'year';
+        if (direction === PAGINATION_DIRECTION.forward) {
+            this.setState({
+                monthDate: this.state.monthDate.clone().add(1, step),
+            });
+        } else {
+            this.setState({
+                monthDate: this.state.monthDate.clone().subtract(1, step),
+            });
+        }
     }
 
     handleViewChange() {
@@ -118,7 +136,8 @@ export class Calendar extends React.Component {
                     date={this.state.monthDate}
                     format={titleFormat}
                     onTitleClick={this.handleViewChange.bind(this)}
-                    onChange={this.handleMonthChange.bind(this)}
+                    onChangeForward={this.handleTitlePagination.bind(this, PAGINATION_DIRECTION.forward)}
+                    onChangeBackward={this.handleTitlePagination.bind(this, PAGINATION_DIRECTION.backward)}
                 />
                 <Separator />
                 {this.renderView()}

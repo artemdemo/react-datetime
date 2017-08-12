@@ -8,9 +8,9 @@ import './Months.less';
 
 class Months extends React.Component {
     monthClickHandler(date) {
-        const { onDateChange, selectedDate } = this.props;
+        const { onDateChange } = this.props;
         onDateChange(
-            selectedDate
+            date
                 .clone()
                 .month(date.month())
                 .year(date.year()),

@@ -6,14 +6,14 @@ import { propIsMoment } from '../propTypes';
 import './TitleController.less';
 
 class TitleController extends React.Component {
-    changeMonthForward() {
-        const { onChange, date } = this.props;
-        onChange(date.clone().add(1, 'month'));
+    changeForward() {
+        const { onChangeForward } = this.props;
+        onChangeForward();
     }
 
-    changeMonthBackward() {
-        const { onChange, date } = this.props;
-        onChange(date.clone().subtract(1, 'month'));
+    changeBackward() {
+        const { onChangeBackward } = this.props;
+        onChangeBackward();
     }
 
     handleTitleClick() {
@@ -34,7 +34,7 @@ class TitleController extends React.Component {
                         <th
                             className='datetime-title-controller-change-month
                                        datetime-title-controller-change-month_backward'
-                            onClick={this.changeMonthBackward.bind(this)}
+                            onClick={this.changeBackward.bind(this)}
                         />
                         <th
                             className={titleClass}
@@ -46,7 +46,7 @@ class TitleController extends React.Component {
                         <th
                             className='datetime-title-controller-change-month
                                        datetime-title-controller-change-month_forward'
-                            onClick={this.changeMonthForward.bind(this)}
+                            onClick={this.changeForward.bind(this)}
                         />
                     </tr>
                 </thead>
@@ -59,7 +59,8 @@ TitleController.displayName = 'TitleController';
 
 TitleController.propTypes = {
     date: propIsMoment.isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChangeForward: PropTypes.func.isRequired,
+    onChangeBackward: PropTypes.func.isRequired,
     format: PropTypes.string.isRequired,
     onTitleClick: PropTypes.func,
 };
