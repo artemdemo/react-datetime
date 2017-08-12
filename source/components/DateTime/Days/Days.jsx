@@ -132,12 +132,8 @@ class Days extends React.Component {
 Days.displayName = 'Days';
 
 Days.propTypes = {
-    date: PropTypes.oneOfType([
-        propIsMoment,
-    ]).isRequired,
-    selectedDate: PropTypes.oneOfType([
-        propIsMoment,
-    ]).isRequired,
+    date: propIsMoment.isRequired,
+    selectedDate: propIsMoment.isRequired,
     onDateChange: PropTypes.func.isRequired,
     isValidDate: PropTypes.func,
 };

@@ -5,6 +5,7 @@ import Days from '../Days/Days';
 import Time from '../Time/Time';
 import Separator from '../Separator/Separator';
 import TitleController from '../TitleController/TitleController';
+import { propIsMoment } from '../propTypes';
 
 import './Calendar.less';
 
@@ -97,7 +98,7 @@ export class Calendar extends React.Component {
 Calendar.displayName = 'Calendar';
 
 Calendar.propTypes = {
-    date: PropTypes.shape({}).isRequired,
+    date: propIsMoment.isRequired,
     timeFormat: PropTypes.string.isRequired,
     onClickOutside: PropTypes.func,
     onChange: PropTypes.func,
