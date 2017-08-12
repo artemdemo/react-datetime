@@ -11,6 +11,7 @@ describe('<Calendar />', () => {
             <Calendar
                 date={date}
                 timeFormat='HH:mm:ss:SSS'
+                test
             />,
         ).toJSON();
         expect(tree).toMatchSnapshot();

@@ -11,7 +11,9 @@ describe('<Days />', () => {
         const tree = renderer.create(
             <Days
                 date={date}
+                selectedDate={date}
                 onDateChange={() => {}}
+                test
             />,
         ).toJSON();
         expect(tree).toMatchSnapshot();
@@ -22,9 +24,11 @@ describe('<Days />', () => {
         const wrapper = mount(
             <Days
                 date={date}
+                selectedDate={date}
                 onDateChange={(date) => {
                     selectedTimestamp = date.valueOf();
                 }}
+                test
             />,
         );
         wrapper.find('.datetime-day').first().simulate('click');
@@ -35,8 +39,10 @@ describe('<Days />', () => {
         const tree = renderer.create(
             <Days
                 date={date}
+                selectedDate={date}
                 isValidDate={_date => _date.valueOf() < 1501681494000}
                 onDateChange={() => {}}
+                test
             />,
         ).toJSON();
         expect(tree).toMatchSnapshot();

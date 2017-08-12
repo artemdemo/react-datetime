@@ -54,13 +54,15 @@ export class Calendar extends React.Component {
     }
 
     renderDays() {
-        const { isValidDate } = this.props;
+        const { isValidDate, test } = this.props;
         return (
             <Days
                 date={this.state.monthDate}
                 selectedDate={this.state.selectedDate}
                 isValidDate={isValidDate}
-                onDateChange={this.handleDateChange.bind(this)} />
+                onDateChange={this.handleDateChange.bind(this)}
+                test={test}
+            />
         );
     }
 
@@ -75,7 +77,8 @@ export class Calendar extends React.Component {
                 <Time
                     date={date}
                     timeFormat={timeFormat}
-                    onChange={this.handleTimeChange.bind(this)} />
+                    onChange={this.handleTimeChange.bind(this)}
+                />
             </div>
         );
     }
@@ -86,7 +89,8 @@ export class Calendar extends React.Component {
                 <TitleController
                     date={this.state.monthDate}
                     format='MMMM, YYYY'
-                    onChange={this.handleMonthChange.bind(this)} />
+                    onChange={this.handleMonthChange.bind(this)}
+                />
                 <Separator />
                 {this.renderDays()}
                 {this.renderTime()}
@@ -103,6 +107,7 @@ Calendar.propTypes = {
     onClickOutside: PropTypes.func,
     onChange: PropTypes.func,
     isValidDate: PropTypes.func,
+    test: PropTypes.bool,
 };
 
 Calendar.defaultProps = {
@@ -110,6 +115,7 @@ Calendar.defaultProps = {
     onClickOutside: null,
     onChange: null,
     isValidDate: null,
+    test: false,
 };
 
 export default onClickOutside(Calendar);

@@ -23,16 +23,19 @@ class TitleController extends React.Component {
                         <th
                             className='datetime-title-controller-change-month
                                        datetime-title-controller-change-month_backward'
-                            onClick={this.changeMonthBackward.bind(this)} />
+                            onClick={this.changeMonthBackward.bind(this)}
+                        />
                         <th
                             className='datetime-title-controller-current-month-year'
-                            colSpan='5'>
+                            colSpan='5'
+                        >
                             {date.format(format)}
                         </th>
                         <th
                             className='datetime-title-controller-change-month
                                        datetime-title-controller-change-month_forward'
-                            onClick={this.changeMonthForward.bind(this)} />
+                            onClick={this.changeMonthForward.bind(this)}
+                        />
                     </tr>
                 </thead>
             </table>

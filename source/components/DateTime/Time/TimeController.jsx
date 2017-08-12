@@ -21,12 +21,14 @@ class TimeController extends React.Component {
                 <div
                     className='datetime-time-controller
                                datetime-time-controller_up'
-                    onClick={this.handleUp.bind(this)} />
+                    onClick={this.handleUp.bind(this)}
+                />
                 <div>{date.format(format)}</div>
                 <div
                     className='datetime-time-controller
                                datetime-time-controller_down'
-                    onClick={this.handleDown.bind(this)} />
+                    onClick={this.handleDown.bind(this)}
+                />
             </td>
         );
     }

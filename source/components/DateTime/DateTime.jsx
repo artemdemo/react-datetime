@@ -89,7 +89,8 @@ class DatePicker extends React.Component {
                         onChange={this.handleDateClick.bind(this)}
                         timeFormat={timeFormat}
                         isValidDate={isValidDate}
-                        onClickOutside={this.handleClickOutside.bind(this)} />
+                        onClickOutside={this.handleClickOutside.bind(this)}
+                    />
                 </div>
             );
         }
@@ -106,7 +107,8 @@ class DatePicker extends React.Component {
                     value={this.state.inputValue}
                     onChange={this.handleInputChange.bind(this)}
                     onFocus={this.inputFocusHandler.bind(this)}
-                    className='datetime-input' />
+                    className='datetime-input'
+                />
                 {this.renderCalendar()}
             </div>
         );

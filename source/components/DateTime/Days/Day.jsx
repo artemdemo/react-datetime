@@ -28,7 +28,8 @@ class Day extends React.Component {
         return (
             <td
                 className={dayClass}
-                onClick={this.clickHandler.bind(this, validDate)}>
+                onClick={this.clickHandler.bind(this, validDate)}
+            >
                 <div className={contentClass}>
                     {date.format('D')}
                 </div>

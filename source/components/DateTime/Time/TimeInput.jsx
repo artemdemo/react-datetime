@@ -33,7 +33,8 @@ class TimeInput extends React.Component {
                 type='text'
                 className={inputClass}
                 value={this.state.value}
-                onChange={this.handleChange.bind(this)} />
+                onChange={this.handleChange.bind(this)}
+            />
         );
     }
 }

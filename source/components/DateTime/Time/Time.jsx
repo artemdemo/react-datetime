@@ -83,7 +83,8 @@ class Time extends React.Component {
                             <TimeInput
                                 value={date.format('SSS')}
                                 onChange={this.changeMilliseconds.bind(this)}
-                                className='datetime-time-input' />
+                                className='datetime-time-input'
+                            />
                         </div>
                     </td>
                 );
@@ -95,7 +96,8 @@ class Time extends React.Component {
                     timePart={part}
                     onUp={this.changeUp.bind(this)}
                     onDown={this.changeDown.bind(this)}
-                    date={date} />
+                    date={date}
+                />
             );
         }
         return null;
