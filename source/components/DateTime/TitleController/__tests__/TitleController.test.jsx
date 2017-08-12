@@ -12,7 +12,8 @@ describe('<TitleController />', () => {
             <TitleController
                 date={date}
                 format='MMMM, YYYY'
-                onChange={() => {}}
+                onChangeForward={() => {}}
+                onChangeBackward={() => {}}
             />,
         ).toJSON();
         expect(tree).toMatchSnapshot();
@@ -24,7 +25,8 @@ describe('<TitleController />', () => {
             <TitleController
                 date={date}
                 format='MMMM, YYYY'
-                onChange={() => {}}
+                onChangeForward={() => {}}
+                onChangeBackward={() => {}}
                 onTitleClick={() => titleClicked = true}
             />,
         );
@@ -33,32 +35,30 @@ describe('<TitleController />', () => {
     });
 
     it('backward clicked', () => {
-        let dateResultMoment = null;
+        let clicked = false;
         const wrapper = mount(
             <TitleController
                 date={date}
                 format='MMMM, YYYY'
-                onChange={dateResult => dateResultMoment = dateResult}
+                onChangeForward={() => {}}
+                onChangeBackward={() => clicked = true}
             />,
         );
         wrapper.find('.datetime-title-controller-change-month_backward').first().simulate('click');
-        expect(
-            date.clone().subtract(1, 'month').isSame(dateResultMoment),
-        ).toBe(true);
+        expect(clicked).toBe(true);
     });
 
     it('forward clicked', () => {
-        let dateResultMoment = null;
+        let clicked = false;
         const wrapper = mount(
             <TitleController
                 date={date}
                 format='MMMM, YYYY'
-                onChange={dateResult => dateResultMoment = dateResult}
+                onChangeForward={() => clicked = true}
+                onChangeBackward={() => {}}
             />,
         );
         wrapper.find('.datetime-title-controller-change-month_forward').first().simulate('click');
-        expect(
-            date.clone().add(1, 'month').isSame(dateResultMoment),
-        ).toBe(true);
+        expect(clicked).toBe(true);
     });
 });
