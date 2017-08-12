@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import classnames from 'classnames';
 import Calendar from './Calendar/Calendar';
+import { propIsMoment } from './propTypes';
 
 import './DateTime.less';
 
@@ -111,15 +112,6 @@ class DatePicker extends React.Component {
         );
     }
 }
-
-export const propIsMoment = (props, propName, componentName) => {
-    if (!moment.isMoment(props[propName])) {
-        return new Error(
-            `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`,
-        );
-    }
-    return undefined;
-};
 
 DatePicker.displayName = 'DatePicker';
 

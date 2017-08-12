@@ -12,6 +12,20 @@ export class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.handleClickOutside = this.handleClickOutside.bind(this);
+
+        const { date } = props;
+        this.state = {
+            monthDate: date,
+            selectedDate: date,
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.date !== nextProps.date) {
+            this.setState({
+                monthDate: nextProps.date,
+            });
+        }
     }
 
     handleClickOutside(e) {
@@ -19,9 +33,12 @@ export class Calendar extends React.Component {
         onClickOutside && onClickOutside(e);
     }
 
-    handleDateChange(newDate) {
+    handleDateChange(selectedDate) {
         const { onChange } = this.props;
-        onChange && onChange(newDate);
+        this.setState({
+            selectedDate,
+        });
+        onChange && onChange(selectedDate);
     }
 
     handleTimeChange(newDate) {
@@ -29,13 +46,18 @@ export class Calendar extends React.Component {
         onChange && onChange(newDate);
     }
 
-    handleMonthChange() {}
+    handleMonthChange(monthDate) {
+        this.setState({
+            monthDate,
+        });
+    }
 
     renderDays() {
-        const { date, isValidDate } = this.props;
+        const { isValidDate } = this.props;
         return (
             <Days
-                date={date}
+                date={this.state.monthDate}
+                selectedDate={this.state.selectedDate}
                 isValidDate={isValidDate}
                 onDateChange={this.handleDateChange.bind(this)} />
         );
@@ -58,11 +80,10 @@ export class Calendar extends React.Component {
     }
 
     render() {
-        const { date } = this.props;
         return (
             <div className='datetime-calendar'>
                 <TitleController
-                    date={date}
+                    date={this.state.monthDate}
                     format='MMMM, YYYY'
                     onChange={this.handleMonthChange.bind(this)} />
                 <Separator />
