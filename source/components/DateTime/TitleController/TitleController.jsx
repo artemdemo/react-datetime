@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import { propIsMoment } from '../propTypes';
 
 import './TitleController.less';
 
@@ -14,8 +16,17 @@ class TitleController extends React.Component {
         onChange(date.clone().subtract(1, 'month'));
     }
 
+    handleTitleClick() {
+        const { onTitleClick } = this.props;
+        onTitleClick && onTitleClick();
+    }
+
     render() {
-        const { date, format } = this.props;
+        const { date, format, onTitleClick } = this.props;
+        const titleClass = classnames({
+            'datetime-title-controller-title': true,
+            'datetime-title-controller-title_clickable': onTitleClick,
+        });
         return (
             <table className='datetime-title-controller'>
                 <thead>
@@ -26,8 +37,9 @@ class TitleController extends React.Component {
                             onClick={this.changeMonthBackward.bind(this)}
                         />
                         <th
-                            className='datetime-title-controller-current-month-year'
+                            className={titleClass}
                             colSpan='5'
+                            onClick={this.handleTitleClick.bind(this)}
                         >
                             {date.format(format)}
                         </th>
@@ -46,9 +58,14 @@ class TitleController extends React.Component {
 TitleController.displayName = 'TitleController';
 
 TitleController.propTypes = {
-    date: PropTypes.shape({}).isRequired,
+    date: propIsMoment.isRequired,
     onChange: PropTypes.func.isRequired,
     format: PropTypes.string.isRequired,
+    onTitleClick: PropTypes.func,
+};
+
+TitleController.defaultProps = {
+    onTitleClick: null,
 };
 
 export default TitleController;

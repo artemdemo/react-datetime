@@ -11,8 +11,9 @@ exports[`<TitleController /> simple render 1`] = `
         onClick={[Function]}
       />
       <th
-        className="datetime-title-controller-current-month-year"
+        className="datetime-title-controller-title"
         colSpan="5"
+        onClick={[Function]}
       >
         August, 2017
       </th>

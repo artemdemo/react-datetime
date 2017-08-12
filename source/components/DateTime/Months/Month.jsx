@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { propIsMoment } from '../propTypes';
 
-import './Day.less';
+import './Month.less';
 
-class Day extends React.Component {
+class Month extends React.Component {
     clickHandler(validDate) {
         const { date, onClick } = this.props;
         if (validDate) {
@@ -15,33 +15,33 @@ class Day extends React.Component {
 
     render() {
         const { date, current, selected, faded, isValidDate } = this.props;
-        const dayClass = classnames({
-            'datetime-day': true,
+        const monthClass = classnames({
+            'datetime-month': true,
         });
         const validDate = isValidDate ? isValidDate(date) : true;
         const contentClass = classnames({
-            'datetime-day__content': true,
-            'datetime-day__content_current': current,
-            'datetime-day__content_selected': selected,
-            'datetime-day__content_faded': faded,
-            'datetime-day__content_disabled': !validDate,
+            'datetime-month__content': true,
+            'datetime-month__content_current': current,
+            'datetime-month__content_selected': selected,
+            'datetime-month__content_faded': faded,
+            'datetime-month__content_disabled': !validDate,
         });
         return (
-            <td
-                className={dayClass}
+            <div
+                className={monthClass}
                 onClick={this.clickHandler.bind(this, validDate)}
             >
                 <div className={contentClass}>
-                    {date.format('D')}
+                    {date.format('MMM')}
                 </div>
-            </td>
+            </div>
         );
     }
 }
 
-Day.displayName = 'Day';
+Month.displayName = 'Month';
 
-Day.propTypes = {
+Month.propTypes = {
     date: propIsMoment.isRequired,
     onClick: PropTypes.func,
     isValidDate: PropTypes.func,
@@ -50,7 +50,7 @@ Day.propTypes = {
     faded: PropTypes.bool,
 };
 
-Day.defaultProps = {
+Month.defaultProps = {
     onClick: null,
     isValidDate: null,
     current: false,
@@ -58,4 +58,4 @@ Day.defaultProps = {
     faded: false,
 };
 
-export default Day;
+export default Month;

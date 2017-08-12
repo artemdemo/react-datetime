@@ -1,26 +1,32 @@
 @import '../styles/general';
 
-.datetime-day {
+.datetime-month {
+    float: left;
+    width: 25%;
+    height: 67px;
     text-align: center;
-    cursor: pointer;
+    display: table;
 }
-    .datetime-day__content {
+
+    .datetime-month__content {
         .clickable();
+        display: table-cell;
+        vertical-align: middle;
 
         border: 2px solid transparent;
-        padding: 3px;
         background-color: transparent;
+        height: 100%;
     }
-        .datetime-day__content_current {
+        .datetime-month__content_current {
             border-color: @hover-color;
         }
-        .datetime-day__content_selected {
+        .datetime-month__content_selected {
             background-color: @hover-color;
         }
-        .datetime-day__content_faded {
+        .datetime-month__content_faded {
             color: fade(@text-color, 35%);
         }
-        .datetime-day__content_disabled {
+        .datetime-month__content_disabled {
             color: fade(@text-color, 15%);
             cursor: not-allowed;
 

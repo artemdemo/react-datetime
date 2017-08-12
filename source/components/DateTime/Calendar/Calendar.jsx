@@ -8,6 +8,7 @@ import TitleController from '../TitleController/TitleController';
 import { propIsMoment } from '../propTypes';
 
 import './Calendar.less';
+import Months from '../Months/Months';
 
 export class Calendar extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ export class Calendar extends React.Component {
 
         const { date } = props;
         this.state = {
+            viewDays: true,
             monthDate: date,
             selectedDate: date,
         };
@@ -34,7 +36,7 @@ export class Calendar extends React.Component {
         onClickOutside && onClickOutside(e);
     }
 
-    handleDateChange(selectedDate) {
+    handleDayChange(selectedDate) {
         const { onChange } = this.props;
         this.setState({
             selectedDate,
@@ -50,19 +52,44 @@ export class Calendar extends React.Component {
     handleMonthChange(monthDate) {
         this.setState({
             monthDate,
+            viewDays: true,
         });
     }
 
-    renderDays() {
+    handleViewChange() {
+        this.setState({
+            viewDays: !this.state.viewDays,
+        });
+    }
+
+    renderView() {
         const { isValidDate, test } = this.props;
+        let view;
+        if (this.state.viewDays) {
+            view = (
+                <Days
+                    date={this.state.monthDate}
+                    selectedDate={this.state.selectedDate}
+                    isValidDate={isValidDate}
+                    onDateChange={this.handleDayChange.bind(this)}
+                    test={test}
+                />
+            );
+        } else {
+            view = (
+                <Months
+                    date={this.state.monthDate}
+                    selectedDate={this.state.selectedDate}
+                    isValidDate={isValidDate}
+                    onDateChange={this.handleMonthChange.bind(this)}
+                    test={test}
+                />
+            );
+        }
         return (
-            <Days
-                date={this.state.monthDate}
-                selectedDate={this.state.selectedDate}
-                isValidDate={isValidDate}
-                onDateChange={this.handleDateChange.bind(this)}
-                test={test}
-            />
+            <div className='datetime-calendar__view'>
+                {view}
+            </div>
         );
     }
 
@@ -84,15 +111,17 @@ export class Calendar extends React.Component {
     }
 
     render() {
+        const titleFormat = this.state.viewDays ? 'MMMM, YYYY' : 'YYYY';
         return (
             <div className='datetime-calendar'>
                 <TitleController
                     date={this.state.monthDate}
-                    format='MMMM, YYYY'
+                    format={titleFormat}
+                    onTitleClick={this.handleViewChange.bind(this)}
                     onChange={this.handleMonthChange.bind(this)}
                 />
                 <Separator />
-                {this.renderDays()}
+                {this.renderView()}
                 {this.renderTime()}
             </div>
         );

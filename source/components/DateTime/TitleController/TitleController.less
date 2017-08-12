@@ -1,18 +1,15 @@
-@import '../datetime-general';
+@import '../styles/general';
 
 .datetime-title-controller {
     .datetime-table();
 }
 
 .datetime-title-controller-change-month {
-    cursor: pointer;
+    .clickable();
+
     padding: 15px;
-    border-radius: 4px;
     position: relative;
 
-    &:hover {
-        background-color: fade(@hover-color, 50%);
-    }
     &::after {
         position: absolute;
         top: 20%;
@@ -30,6 +27,9 @@
         }
     }
 
-.datetime-title-controller-current-month-year {
+.datetime-title-controller-title {
     font-weight: normal;
 }
+    .datetime-title-controller-title_clickable {
+        .clickable();
+    }
