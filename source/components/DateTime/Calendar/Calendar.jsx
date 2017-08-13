@@ -97,7 +97,6 @@ export class Calendar extends React.Component {
             view = (
                 <Months
                     date={this.state.monthDate}
-                    selectedDate={this.state.selectedDate}
                     isValidDate={isValidDate}
                     onDateChange={this.handleMonthChange.bind(this)}
                     test={test}

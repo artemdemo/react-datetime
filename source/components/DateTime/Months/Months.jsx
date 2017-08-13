@@ -50,7 +50,6 @@ Months.displayName = 'Months';
 
 Months.propTypes = {
     date: propIsMoment.isRequired,
-    selectedDate: propIsMoment.isRequired,
     onDateChange: PropTypes.func.isRequired,
     isValidDate: PropTypes.func,
 };
