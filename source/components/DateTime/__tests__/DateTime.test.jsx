@@ -8,7 +8,25 @@ describe('<DateTime />', () => {
         const tree = renderer.create(
             <DateTime
                 defaultValue={moment(1502459094000)}
-                utc />,
+                utc
+            />,
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it('inputProps', () => {
+        const tree = renderer.create(
+            <DateTime
+                defaultValue={moment(1502459094000)}
+                inputProps={{
+                    disabled: true,
+                    required: true,
+                    name: 'Some name',
+                    className: 'some-class',
+                    placeholder: 'Some placeholder',
+                }}
+                utc
+            />,
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

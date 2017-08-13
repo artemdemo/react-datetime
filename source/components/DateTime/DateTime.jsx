@@ -98,8 +98,9 @@ class DatePicker extends React.Component {
     }
 
     render() {
-        const { className } = this.props;
+        const { className, inputProps } = this.props;
         const datetimeClass = classnames('datetime', className);
+        const inputClass = classnames('datetime-input', inputProps.className);
         return (
             <div className={datetimeClass}>
                 <input
@@ -107,7 +108,11 @@ class DatePicker extends React.Component {
                     value={this.state.inputValue}
                     onChange={this.handleInputChange.bind(this)}
                     onFocus={this.inputFocusHandler.bind(this)}
-                    className='datetime-input'
+                    className={inputClass}
+                    disabled={inputProps.disabled}
+                    required={inputProps.required}
+                    name={inputProps.name}
+                    placeholder={inputProps.placeholder}
                 />
                 {this.renderCalendar()}
             </div>
@@ -123,6 +128,13 @@ DatePicker.propTypes = {
         PropTypes.string,
         PropTypes.number,
     ]),
+    inputProps: PropTypes.shape({
+        disabled: PropTypes.bool,
+        required: PropTypes.bool,
+        name: PropTypes.string,
+        className: PropTypes.string,
+        placeholder: PropTypes.string,
+    }),
     onChange: PropTypes.func,
     isValidDate: PropTypes.func,
     utc: PropTypes.bool,
@@ -133,6 +145,11 @@ DatePicker.propTypes = {
 
 DatePicker.defaultProps = {
     defaultValue: moment(),
+    inputProps: {
+        disabled: false,
+        required: false,
+        placeholder: '',
+    },
     onChange: null,
     isValidDate: null,
     utc: false,
