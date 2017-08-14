@@ -14,15 +14,13 @@ class Month extends React.Component {
     }
 
     render() {
-        const { date, current, selected, faded, isValidDate } = this.props;
+        const { date, faded, isValidDate } = this.props;
         const monthClass = classnames({
             'datetime-month': true,
         });
         const validDate = isValidDate ? isValidDate(date) : true;
         const contentClass = classnames({
             'datetime-month__content': true,
-            'datetime-month__content_current': current,
-            'datetime-month__content_selected': selected,
             'datetime-month__content_faded': faded,
             'datetime-month__content_disabled': !validDate,
         });
@@ -45,16 +43,12 @@ Month.propTypes = {
     date: propIsMoment.isRequired,
     onClick: PropTypes.func,
     isValidDate: PropTypes.func,
-    current: PropTypes.bool,
-    selected: PropTypes.bool,
     faded: PropTypes.bool,
 };
 
 Month.defaultProps = {
     onClick: null,
     isValidDate: null,
-    current: false,
-    selected: false,
     faded: false,
 };
 

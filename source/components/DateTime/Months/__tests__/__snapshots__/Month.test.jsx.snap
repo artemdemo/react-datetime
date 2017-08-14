@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Month /> faded 1`] = `
+<div
+  className="datetime-month"
+  onClick={[Function]}
+>
+  <div
+    className="datetime-month__content datetime-month__content_faded"
+  >
+    Aug
+  </div>
+</div>
+`;
+
+exports[`<Month /> isValidDate 1`] = `
+<div
+  className="datetime-month"
+  onClick={[Function]}
+>
+  <div
+    className="datetime-month__content datetime-month__content_disabled"
+  >
+    Aug
+  </div>
+</div>
+`;
+
+exports[`<Month /> simple render 1`] = `
+<div
+  className="datetime-month"
+  onClick={[Function]}
+>
+  <div
+    className="datetime-month__content"
+  >
+    Aug
+  </div>
+</div>
+`;
