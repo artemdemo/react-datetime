@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import onClickOutside from 'react-onclickoutside';
+import onClickOutside from 'react-click-outside';
 import Days from '../Days/Days';
 import Time from '../Time/Time';
 import Separator from '../Separator/Separator';
@@ -22,18 +22,32 @@ export class Calendar extends React.Component {
 
         const { date } = props;
         this.state = {
+            daysWidth: null,
             viewDays: true,
             monthDate: date,
             selectedDate: date,
         };
+
+        this.daysRef = null;
+    }
+
+    componentDidMount() {
+        this.setState({
+            daysWidth: this.daysRef.getWidth(),
+        });
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.date !== nextProps.date) {
             this.setState({
                 monthDate: nextProps.date,
+                selectedDate: nextProps.date,
             });
         }
+    }
+
+    setDaysRef(ref) {
+        this.daysRef = ref;
     }
 
     handleClickOutside(e) {
@@ -55,10 +69,16 @@ export class Calendar extends React.Component {
     }
 
     handleMonthChange(monthDate) {
+        const { onChange } = this.props;
+        const selectedDate = this.state.selectedDate.clone()
+            .month(monthDate.month())
+            .year(monthDate.year());
         this.setState({
             monthDate,
+            selectedDate,
             viewDays: true,
         });
+        onChange && onChange(selectedDate);
     }
 
     handleTitlePagination(direction) {
@@ -86,6 +106,7 @@ export class Calendar extends React.Component {
         if (this.state.viewDays) {
             view = (
                 <Days
+                    ref={this.setDaysRef.bind(this)}
                     date={this.state.monthDate}
                     selectedDate={this.state.selectedDate}
                     isValidDate={isValidDate}
@@ -96,12 +117,14 @@ export class Calendar extends React.Component {
         } else {
             view = (
                 <Months
+                    width={this.state.daysWidth}
                     date={this.state.monthDate}
                     isValidDate={isValidDate}
                     onDateChange={this.handleMonthChange.bind(this)}
                     test={test}
                 />
             );
+            this.daysRef = null;
         }
         return (
             <div className='datetime-calendar__view'>
@@ -134,6 +157,7 @@ export class Calendar extends React.Component {
                 <TitleController
                     date={this.state.monthDate}
                     format={titleFormat}
+                    width={this.state.daysWidth}
                     onTitleClick={this.handleViewChange.bind(this)}
                     onChangeForward={this.handleTitlePagination.bind(this, PAGINATION_DIRECTION.forward)}
                     onChangeBackward={this.handleTitlePagination.bind(this, PAGINATION_DIRECTION.backward)}

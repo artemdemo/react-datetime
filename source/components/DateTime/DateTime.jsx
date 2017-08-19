@@ -58,7 +58,7 @@ class DatePicker extends React.Component {
         }
     }
 
-    handleDateClick(newDate) {
+    handleDateChange(newDate) {
         const { onChange } = this.props;
         this.setState({
             date: newDate,
@@ -86,7 +86,7 @@ class DatePicker extends React.Component {
                 <div className='datetime-calendar-container'>
                     <Calendar
                         date={this.state.date}
-                        onChange={this.handleDateClick.bind(this)}
+                        onChange={this.handleDateChange.bind(this)}
                         timeFormat={timeFormat}
                         isValidDate={isValidDate}
                         onClickOutside={this.handleClickOutside.bind(this)}

@@ -8,11 +8,15 @@
         .clickable();
 
         border: 2px solid transparent;
-        padding: 3px;
+        padding: 0 3px;
         background-color: transparent;
     }
         .datetime-day__content_current {
             border-color: @hover-color;
+
+            &.datetime-day__content_selected {
+                border-color: darken(@hover-color, 15%);
+            }
         }
         .datetime-day__content_selected {
             background-color: @hover-color;

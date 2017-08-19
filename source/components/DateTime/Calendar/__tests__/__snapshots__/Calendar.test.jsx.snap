@@ -6,11 +6,16 @@ exports[`<Calendar /> simple render 1`] = `
 >
   <table
     className="datetime-title-controller"
+    style={
+      Object {
+        "width": "auto",
+      }
+    }
   >
     <thead>
       <tr>
         <th
-          className="datetime-title-controller-change-month datetime-title-controller-change-month_backward"
+          className="datetime-title-controller-change datetime-title-controller-change_backward"
           onClick={[Function]}
         />
         <th
@@ -21,7 +26,7 @@ exports[`<Calendar /> simple render 1`] = `
           August, 2017
         </th>
         <th
-          className="datetime-title-controller-change-month datetime-title-controller-change-month_forward"
+          className="datetime-title-controller-change datetime-title-controller-change_forward"
           onClick={[Function]}
         />
       </tr>

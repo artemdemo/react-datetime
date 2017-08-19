@@ -22,18 +22,23 @@ class TitleController extends React.Component {
     }
 
     render() {
-        const { date, format, onTitleClick } = this.props;
+        const { date, width, format, onTitleClick } = this.props;
         const titleClass = classnames({
             'datetime-title-controller-title': true,
             'datetime-title-controller-title_clickable': onTitleClick,
         });
         return (
-            <table className='datetime-title-controller'>
+            <table
+                className='datetime-title-controller'
+                style={{
+                    width: width || 'auto',
+                }}
+            >
                 <thead>
                     <tr>
                         <th
-                            className='datetime-title-controller-change-month
-                                       datetime-title-controller-change-month_backward'
+                            className='datetime-title-controller-change
+                                       datetime-title-controller-change_backward'
                             onClick={this.changeBackward.bind(this)}
                         />
                         <th
@@ -44,8 +49,8 @@ class TitleController extends React.Component {
                             {date.format(format)}
                         </th>
                         <th
-                            className='datetime-title-controller-change-month
-                                       datetime-title-controller-change-month_forward'
+                            className='datetime-title-controller-change
+                                       datetime-title-controller-change_forward'
                             onClick={this.changeForward.bind(this)}
                         />
                     </tr>
@@ -62,11 +67,16 @@ TitleController.propTypes = {
     onChangeForward: PropTypes.func.isRequired,
     onChangeBackward: PropTypes.func.isRequired,
     format: PropTypes.string.isRequired,
+    width: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
     onTitleClick: PropTypes.func,
 };
 
 TitleController.defaultProps = {
     onTitleClick: null,
+    width: 'auto',
 };
 
 export default TitleController;

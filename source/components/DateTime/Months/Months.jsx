@@ -38,8 +38,14 @@ class Months extends React.Component {
     }
 
     render() {
+        const { width } = this.props;
         return (
-            <div className='datetime-months'>
+            <div
+                className='datetime-months'
+                style={{
+                    width,
+                }}
+            >
                 {this.renderMonths()}
             </div>
         );
@@ -51,11 +57,13 @@ Months.displayName = 'Months';
 Months.propTypes = {
     date: propIsMoment.isRequired,
     onDateChange: PropTypes.func.isRequired,
+    width: PropTypes.number,
     isValidDate: PropTypes.func,
 };
 
 Months.defaultProps = {
     isValidDate: null,
+    width: 200,
 };
 
 export default Months;

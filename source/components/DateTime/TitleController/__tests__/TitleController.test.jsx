@@ -44,7 +44,7 @@ describe('<TitleController />', () => {
                 onChangeBackward={() => clicked = true}
             />,
         );
-        wrapper.find('.datetime-title-controller-change-month_backward').first().simulate('click');
+        wrapper.find('.datetime-title-controller-change_backward').first().simulate('click');
         expect(clicked).toBe(true);
     });
 
@@ -58,7 +58,7 @@ describe('<TitleController />', () => {
                 onChangeBackward={() => {}}
             />,
         );
-        wrapper.find('.datetime-title-controller-change-month_forward').first().simulate('click');
+        wrapper.find('.datetime-title-controller-change_forward').first().simulate('click');
         expect(clicked).toBe(true);
     });
 });

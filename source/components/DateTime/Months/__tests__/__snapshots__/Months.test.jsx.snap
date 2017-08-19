@@ -3,6 +3,11 @@
 exports[`<Months /> all months after august (not incl) should be disabled 1`] = `
 <div
   className="datetime-months"
+  style={
+    Object {
+      "width": 200,
+    }
+  }
 >
   <div
     className="datetime-month"
@@ -130,6 +135,11 @@ exports[`<Months /> all months after august (not incl) should be disabled 1`] = 
 exports[`<Months /> simple render 1`] = `
 <div
   className="datetime-months"
+  style={
+    Object {
+      "width": 200,
+    }
+  }
 >
   <div
     className="datetime-month"

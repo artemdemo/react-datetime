@@ -11,6 +11,7 @@ class Days extends React.Component {
         super(props);
         const { selectedDate } = this.props;
 
+        this.daysTableEl = null;
         this.state = {
             selectedDate: selectedDate.clone(),
         };
@@ -22,6 +23,17 @@ class Days extends React.Component {
                 selectedDate: nextProps.selectedDate.clone(),
             });
         }
+    }
+
+    setDaysTableEl(ref) {
+        this.daysTableEl = ref;
+    }
+
+    /**
+     * @public
+     */
+    getWidth() {
+        return this.daysTableEl ? this.daysTableEl.offsetWidth : null;
     }
 
     getDaysOfWeek() {
@@ -92,7 +104,7 @@ class Days extends React.Component {
                     date={prevMonth.clone()}
                     onClick={this.dayClickHandler.bind(this)}
                     current={prevMonth.isSame(currentMoment, 'day')}
-                    selected={prevMonth.isSame(this.state.selectedDate)}
+                    selected={prevMonth.isSame(this.state.selectedDate, 'day')}
                     faded={pastMonth || futureMonth}
                     isValidDate={isValidDate}
                     key={`days-columns-${prevMonth.format('M_D')}`}
@@ -123,6 +135,7 @@ class Days extends React.Component {
     render() {
         return (
             <table
+                ref={this.setDaysTableEl.bind(this)}
                 className='datetime-days'>
                 {this.renderDaysOfWeek()}
                 {this.renderDays()}
